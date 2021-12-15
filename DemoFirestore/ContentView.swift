@@ -22,7 +22,7 @@ struct Home: View {
         NavigationView {
             VStack {
                 if status {
-                    Homescreen()
+                    CityView()
                 } else {
                     ZStack {
                         NavigationLink(isActive: self.$show) {
@@ -311,6 +311,95 @@ struct Homescreen : View {
     }
 }
 
+struct CityView: View {
+    @State var image = "profile_img"
+    @State var image2 = "suit.heart.fill"
+    @State var userName = "traveller4life"
+    @State var likeCount = "1234"
+    @State var placeName = "Best Church View"
+    @State var category = "Photos & Landscapes"
+    @State var header = true
+    @State var footer = false
+    
+    
+    var body: some View {
+        ScrollView {
+            
+            ForEach((1...10), id: \.self) {_ in
+                ZStack {
+                    VStack {
+                        CustomView(image: self.$image, userName: self.$userName, category: self.$category, header: self.$header)
+                        Image("city")
+                            .resizable()
+                            .scaledToFill()
+                        CustomView(image: self.$image2, userName: self.$likeCount, category: self.$placeName, header: self.$footer)
+                    }
+                    .background(Color.white)
+                    .cornerRadius(10)
+                }
+                .padding()
+                .shadow(color: .black, radius: 5)
+            }
+        }
+    }
+}
+
+struct CustomView: View {
+    @Binding var image: String
+    @Binding var userName: String
+    @Binding var category: String
+    @Binding var header: Bool
+    
+    var body: some View {
+        HStack(alignment: .center, spacing: 5) {
+            if header {
+                Image(image)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 30, height: 30)
+                    .padding(.leading, 5)
+                    .padding(.top, 5)
+                
+                Text(userName)
+                    .fontWeight(.light)
+                    .font(.title2)
+                    .italic()
+                    .padding(.top, 5)
+                Spacer()
+                Text(category)
+                    .fontWeight(.light)
+                    .italic()
+                    .font(.subheadline)
+                    .italic()
+                    .padding(.trailing, 5)
+                    .padding(.top, 5)
+            } else {
+                Image(systemName: image)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 20, height: 20)
+                    .padding(.leading, 5)
+                    .padding(.bottom, 5)
+                    .foregroundColor(Color("Color"))
+                
+                Text(userName)
+                    .fontWeight(.light)
+                    .font(.title2)
+                    .italic()
+                    .padding(.bottom, 5)
+                Spacer()
+                Text(category)
+                    .fontWeight(.light)
+                    .italic()
+                    .font(.subheadline)
+                    .italic()
+                    .padding(.trailing, 5)
+                    .padding(.bottom, 5)
+            }
+        }
+    }
+}
+
 struct ErrorView : View {
     
     @State var color = Color.black.opacity(0.7)
@@ -335,9 +424,9 @@ struct ErrorView : View {
                 .padding(.horizontal, 25)
                 
                 Text(self.error == "RESET" ? "Password reset link has been sent successfully" : self.error)
-                .foregroundColor(self.color)
-                .padding(.top)
-                .padding(.horizontal, 25)
+                    .foregroundColor(self.color)
+                    .padding(.top)
+                    .padding(.horizontal, 25)
                 
                 Button(action: {
                     
@@ -356,7 +445,7 @@ struct ErrorView : View {
                 
             }
             .padding(.vertical, 25)
-//            .frame(width: UIScreen.main.bounds.width)
+            //            .frame(width: UIScreen.main.bounds.width)
             .background(Color.white)
             .cornerRadius(15)
         }
