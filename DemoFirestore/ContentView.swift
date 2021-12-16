@@ -323,23 +323,37 @@ struct CityView: View {
     
     
     var body: some View {
-        ScrollView {
-            
-            ForEach((1...10), id: \.self) {_ in
-                ZStack {
-                    VStack {
-                        CustomView(image: self.$image, userName: self.$userName, category: self.$category, header: self.$header)
-                        Image("city")
-                            .resizable()
-                            .scaledToFill()
-                        CustomView(image: self.$image2, userName: self.$likeCount, category: self.$placeName, header: self.$footer)
+        ZStack(alignment: .topTrailing) {
+            ScrollView {
+                
+                ForEach((1...10), id: \.self) {_ in
+                    ZStack {
+                        VStack {
+                            CustomView(image: self.$image, userName: self.$userName, category: self.$category, header: self.$header)
+                            Image("city")
+                                .resizable()
+                                .scaledToFill()
+                            CustomView(image: self.$image2, userName: self.$likeCount, category: self.$placeName, header: self.$footer)
+                        }
+                        .background(Color.white)
+                        .cornerRadius(10)
                     }
-                    .background(Color.white)
-                    .cornerRadius(10)
+                    .padding()
+                    .shadow(color: .black, radius: 5)
                 }
-                .padding()
-                .shadow(color: .black, radius: 5)
             }
+            .padding(.top, 25)
+            
+            Button {
+                try! Auth.auth().signOut()
+                UserDefaults.standard.set(false, forKey: "status")
+                NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+            } label: {
+                Text("LogOut")
+                    .fontWeight(.bold)
+                    .foregroundColor(Color("Color"))
+            }
+            .padding()
         }
     }
 }

@@ -37,6 +37,7 @@
 		ADBF3466276666600074682E /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = ADBF3465276666600074682E /* FirebaseStorageCombine-Community */; };
 		ADBF3468276666600074682E /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = ADBF3467276666600074682E /* FirebaseStorageSwift-Beta */; };
 		ADBF346A276666DA0074682E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADBF3469276666DA0074682E /* GoogleService-Info.plist */; };
+		ADBF346E276A5B950074682E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBF346D276A5B950074682E /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		ADBF342C276665330074682E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADBF342F276665330074682E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ADBF3469276666DA0074682E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ADBF346D276A5B950074682E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				ADBF3469276666DA0074682E /* GoogleService-Info.plist */,
 				ADBF34282766652D0074682E /* DemoFirestoreApp.swift */,
 				ADBF342A2766652D0074682E /* ContentView.swift */,
+				ADBF346D276A5B950074682E /* User.swift */,
 				ADBF342C276665330074682E /* Assets.xcassets */,
 				ADBF342E276665330074682E /* Preview Content */,
 			);
@@ -223,6 +226,7 @@
 			files = (
 				ADBF342B2766652D0074682E /* ContentView.swift in Sources */,
 				ADBF34292766652D0074682E /* DemoFirestoreApp.swift in Sources */,
+				ADBF346E276A5B950074682E /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
